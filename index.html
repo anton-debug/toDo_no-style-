@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Список дел</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container clearfix">
+        <section class="left-section">
+            <h1 class="section-heading">
+                Список дел:
+            </h1>
+            
+            <div class="left-section-empty">
+                Список пуст...
+            </div>
+
+            <div class="todo__list">
+
+            </div>
+                
+<!--             <div class="left-block-list">
+                <div class="business-items">
+                    <div class="left-section-items">
+                        <p class="left-section-text">
+                            Позвонить маме
+                        </p>
+    
+                        <button class="clear-btn btn-clear"></button>
+
+                        <button class="arrow btn-clear"></button>
+                    </div>
+                    
+                </div>
+    
+                <div class="descr-item">
+                    <p class="descr-item-coments">
+                        Дело 2
+                    </p>
+                </div>
+            </div>
+ -->        </section>
+
+        <section class="right-section clearfix">
+
+            <h2 class="section-heading">
+                Добавить новое дело
+            </h2>
+
+            <button class="print" onclick="window.print()">&#128438</button>
+
+            <div class="form">
+                <div action="#" class="right-input-text">
+                    <label for="name-work" class="label-heding">
+                        * Название
+                    </label>
+                    <input id="name-work" class="name-form-work" type="text" autocomplete="off" name="name">
+
+                    <label for="work-descr" class="label-heding">
+                        * Описание
+                    </label>
+                    <textarea id="work-descr" class="form-descr" name="form-descr" maxlength="1000" cols="50" rows="9"
+                        wrap="hard"></textarea>
+
+                    <button id="btn-addWorks" class="button" type="submit">
+                        Добавить дело
+                    </button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="./js/javascript.js"></script>
+
+    
+</body>
+
+</html>

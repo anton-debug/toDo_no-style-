@@ -1,0 +1,212 @@
+body {
+	/* background: rgb(58,108,180); */
+	background: url(../img/met-pat-010.png);
+	font-family: 'Comfortaa', cursive;
+}
+
+h1,
+h2 {
+	margin: 0;
+}
+
+.container {
+	width: 960px;
+	margin: 0 auto;
+}
+
+.clearfix::after {
+	content: "";
+	clear: both;
+	display: table;
+}
+
+.visually-hidden {
+	/*  */
+	position: absolute; /* Вырывает элемент из потока  */
+	clip: rect(
+		1px 1px 1px 1px
+	); /* IE6, IE7 */ /*Свойство clip определяет область позиционированного элемента, в которой будет показано его содержимое. Все, что не помещается в эту область, будет обрезано и становится невидимым. На данный момент единственно доступная форма области — прямоугольник. Все остальное остается только в мечтах. clip работает только для абсолютно позиционированных элементов.*/
+	clip: rect(1px, 1px, 1px, 1px);
+	padding: 0 !important; /* обнуляем падинги для этого класса */
+	border: 0 !important; /*обнуляем рамки для этого класса */
+	height: 1px !important; /* зыдаем приоритетную высоту для этого класса */
+	width: 1px !important; /* зыдаем приоритетную щирину для этого класса */
+	overflow: hidden;
+}
+
+.left-section {
+	float: left;
+	width: 470px;
+}
+
+.left-block-list {
+	margin-bottom: 20px;
+	/* border-radius: 5px; */
+	animation: circle 1s ease-out; /* Анимированное появление пунктов текста */
+}
+
+@keyframes circle { /* Добавляем ключевые кадры для плавности появления */
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+.left-section-text {
+	font-size: 24px;
+	font-weight: 700;
+	display: inline-block;
+	margin: 0 10px 0 0;
+}
+
+.descr-item-coments {
+	font-size: 20px;
+	font-style: italic;
+	margin: 0;
+
+}
+
+.section-heading {
+	font-size: 25px;
+	font-weight: 700;
+	color: #fff;
+	background-color: transparent;
+	padding: 60px 0 30px;
+	text-align: center;
+}
+
+.left-section-empty {
+	color: #fff;
+	font-size: 16px;
+	text-align: center;
+}
+
+.business-items {
+	padding: 20px;
+	border-bottom: 2px solid #ee4a4a;
+	border-radius: 10px 10px 0px 0px;
+	background-color: #bec3ca;
+}
+
+.descr-item {
+	padding: 20px;
+	color: #252323;
+	background-color: #bec3ca;
+	border-radius: 0px 0px 10px 10px;
+}
+
+
+/* Правая часть */
+
+.print {
+	float: right;
+	outline: none;
+	margin: 10px 10px 0 0;
+}
+
+.print:hover {
+	background-color: #8a8a8a;
+	color: #fff;
+	transition: 0.5s;
+	transform: scale(1.6);
+	border: 0.1px solid rgb(143, 182, 182);
+	border-radius: 5px;
+  
+  }
+
+.right-section {
+	float: right;
+	width: 470px;
+}
+
+.form {
+	background-color: #bec3ca;
+	border-radius: 10px;
+}
+
+.label-heding {
+	font-size: 14px;
+	font-weight: 600;
+	/* color: #f0f1f3; */
+	margin-bottom: 10px;
+}
+
+.right-input-text {
+  	padding: 30px 10px 35px 35px;
+}
+
+.name-form-work {
+	display: block;
+	background-color: #f5f5f5df;
+	border: 1px solid #b8b8b8;
+	border-radius: 10px;
+	width: 390px;
+	height: 45px;
+	font-size: 23px;
+	margin: 5px 0 25px;
+	padding: 10px 0px 10px 20px;}
+
+.form-descr {
+	display: block;
+	background-color: #f5f5f5df;
+	border: 1px solid #b8b8b8;
+	border-radius: 10px;
+	resize: none;
+	width: 390px;
+	height: 230px;
+	margin-top: 5px;
+	line-height: 1.5;
+	font-size: 23px;
+	padding: 20px 0 0 20px;
+}
+
+.button {
+	display: block;
+	margin: 28px auto 0 auto;  border: none;
+	border-radius: 10px;
+	cursor: pointer;
+	background-color: #2174fd;
+	min-width: 224px;
+	height: 55px;
+}
+
+.button:hover {
+	background-color: #bfcde7;
+	transition: 0.5s;
+	border: 1px solid #2174fd;
+	border-radius: 10px;
+	min-width: 370px;
+}
+
+/* Добавляем кнопки удалить и свернуть описание дела */
+
+.btn-clear {
+/* Общий класс для кнопок удалить и свернуть */
+	background-position: center;
+	border: none;
+	cursor: pointer;
+	outline: none;
+	vertical-align: middle;
+}
+
+.clear-btn {
+	background: url("../img/clear-button.png") no-repeat;
+    height: 10px;
+	width: 10px;
+}
+
+.arrow {
+	background: url("../img/arrow.png") no-repeat;
+	float: right;
+    margin: 6px 0 0 0;
+	padding: 0;
+	height: 15px;
+    width: 15px;
+}
+
+.error {
+	border: 2px solid red;
+}
