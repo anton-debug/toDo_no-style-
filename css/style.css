@@ -147,7 +147,8 @@ h2 {
 	height: 45px;
 	font-size: 23px;
 	margin: 5px 0 25px;
-	padding: 10px 0px 10px 20px;}
+	padding: 10px 10px 10px 10px;
+}
 
 .form-descr {
 	display: block;
