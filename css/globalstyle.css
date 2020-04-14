@@ -1,0 +1,73 @@
+html {
+	box-sizing: border-box; 
+}
+
+*, 
+*::before, 
+*::after {
+	box-sizing: inherit; 
+}
+
+body {
+    min-width: 1000px; 
+    margin: 0px; 
+    background: url("../img/met-pat-010.png"); 
+    font-family: "Comfortaa", italic, "Arial", sans-serif; 
+    font-size: 16px; 
+    color: black; 
+}
+
+body.modal-active {
+    overflow: hidden; 
+}
+
+h1,
+h2 {
+	margin: 0;
+}
+
+img {
+	max-width: 100%; 
+}     
+
+a {
+    text-decoration: none;  
+    color: inherit; 
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    margin: 0;
+}
+
+li {
+    list-style-type: none;
+}
+
+
+.visually-hidden { 
+    position: absolute; 
+    clip: rect(1px 1px 1px 1px); 
+	clip: rect(1px, 1px, 1px, 1px);
+    padding: 0 !important; 
+    border: 0 !important; 
+    height: 1px !important; 
+    width: 1px !important; 
+	overflow: hidden;
+}
+
+.clearfix::after { 
+    content: ""; 
+    display: table; 
+    clear: both; 
+	
+}
+
+.container { 
+	width: 1000px;
+	margin: 0 auto;
+} 

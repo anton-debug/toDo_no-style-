@@ -1,39 +1,3 @@
-body {
-	/* background: rgb(58,108,180); */
-	background: url(../img/met-pat-010.png);
-	font-family: 'Comfortaa', cursive;
-}
-
-h1,
-h2 {
-	margin: 0;
-}
-
-.container {
-	width: 960px;
-	margin: 0 auto;
-}
-
-.clearfix::after {
-	content: "";
-	clear: both;
-	display: table;
-}
-
-.visually-hidden {
-	/*  */
-	position: absolute; /* Вырывает элемент из потока  */
-	clip: rect(
-		1px 1px 1px 1px
-	); /* IE6, IE7 */ /*Свойство clip определяет область позиционированного элемента, в которой будет показано его содержимое. Все, что не помещается в эту область, будет обрезано и становится невидимым. На данный момент единственно доступная форма области — прямоугольник. Все остальное остается только в мечтах. clip работает только для абсолютно позиционированных элементов.*/
-	clip: rect(1px, 1px, 1px, 1px);
-	padding: 0 !important; /* обнуляем падинги для этого класса */
-	border: 0 !important; /*обнуляем рамки для этого класса */
-	height: 1px !important; /* зыдаем приоритетную высоту для этого класса */
-	width: 1px !important; /* зыдаем приоритетную щирину для этого класса */
-	overflow: hidden;
-}
-
 .left-section {
 	float: left;
 	width: 470px;
@@ -101,7 +65,7 @@ h2 {
 
 /* Правая часть */
 
-.print {
+/* .print {
 	float: right;
 	outline: none;
 	margin: 10px 10px 0 0;
@@ -115,7 +79,7 @@ h2 {
 	border: 0.1px solid rgb(143, 182, 182);
 	border-radius: 5px;
   
-  }
+  } */
 
 .right-section {
 	float: right;
@@ -179,7 +143,7 @@ h2 {
 	transition: 0.5s;
 	border: 1px solid #2174fd;
 	border-radius: 10px;
-	min-width: 370px;
+	min-width: 200px;
 }
 
 /* Добавляем кнопки удалить и свернуть описание дела */
@@ -202,7 +166,7 @@ h2 {
 .arrow {
 	background: url("../img/arrow.png") no-repeat;
 	float: right;
-    margin: 6px 0 0 0;
+    margin: 15px 0 0 0;
 	padding: 0;
 	height: 15px;
     width: 15px;
