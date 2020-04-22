@@ -1,10 +1,11 @@
 $(document).ready(function(){
 
-    var listEl = $('.js-list'); //Переменная на список
+    let listEl = $('.js-list'); //Переменная на список
         listClean = $('.js-items__clean'); //Переменная на 'Список пуст...'
         formWork = $('.js-form__work'); //Поле ввода названия дела input
         formDeskr = $('.js-form__descr'); // Поле ввода описания дела 'textarea'
         form = $('.js-form');
+        btnAddWork = $('.js-btn');
 
     function initialState() {
         if (localStorage.getItem('comments') == null) {
@@ -102,7 +103,18 @@ $(document).ready(function(){
         }
     }
 
+    
+    /* При заполнении формы добавление дела - при нажатии на Enter */
+    form.keypress(function(e) {
+        if(e.which == 13) {
+            $(this).blur();
+            btnAddWork.focus().click();
+        }
+    });
+
     form.submit(addTodo);
+
+    /* // При заполнении формы добавление дела - при нажатии на Enter */
 
     $('body').on('click', '.js-clear__btn', function(event){
         event.preventDefault();
