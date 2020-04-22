@@ -1,32 +1,37 @@
 $(document).ready(function(){
 
+    var listEl = $('.js-list'); //Переменная на список
+        listClean = $('.js-items__clean'); //Переменная на 'Список пуст...'
+        formWork = $('.js-form__work'); //Поле ввода названия дела input
+        formDeskr = $('.js-form__descr'); // Поле ввода описания дела 'textarea'
+        form = $('.js-form');
+
     function initialState() {
         if (localStorage.getItem('comments') == null) {
-            $('.js-items__clean').show();
+            listClean.show();
         } else {
-            $('.js-list').html(localStorage.getItem('comments'));
-            $('.js-items__clean').hide();
+            listEl.html(localStorage.getItem('comments'));
+            listClean.hide();
         }
     }
 
     initialState();
 
     function addToStorage() {
-        let content = $('.js-list').html();
+        let content = listEl.html();
         console.log(content);
         localStorage.setItem('comments', content);
     }
 
-
-
-    function addTodo() {
-        let name = $('.js-form__work').val(),//Забирает то что написали в input
-            text = $('.js-form__descr').val(); // Забирает то что написали в textarea
+    function addTodo(event) {
+        event.preventDefault();
+        let name = formWork.val(),//Забирает то что написали в input
+            text = formDeskr.val(); // Забирает то что написали в textarea
 
         if (name && text) { //Проверяем написано ли что то в формах
            
-            $('.js-form__work').removeClass('error');
-            $('.js-form__descr').removeClass('error');
+            formWork.removeClass('error');
+            formDeskr.removeClass('error');
             
             // $('.left-section-empty').hide(); //если написано, то скрываем "Список пуст..."
             // $('.todo__list').append(`
@@ -51,7 +56,7 @@ $(document).ready(function(){
             //     </div>
 
             // `);
-            $('.js-list').append(`
+            listEl.append(`
                 <li class="left-block-list js-list_items">
                     <article class="business-items js-article">
                         <header class="header__list">
@@ -71,16 +76,16 @@ $(document).ready(function(){
 
             /* Обнуляем/очищаем формы после добавления дела
             добавляя пустую строку в val('') */
-            $('.js-items__clean').hide();
+            listClean.hide();
 
-            name = $('.js-form__work').val('');
-            text = $('.js-form__descr').val('');
+            name = formWork.val('');
+            text = formDeskr.val('');
 
             addToStorage();
 
         } else { //Если в формах ничего нет и нажали кнопку добавить, то добавляется клас error
-            $('.js-form__work').addClass('error');
-            $('.js-form__descr').addClass('error');
+            formWork.addClass('error');
+            formDeskr.addClass('error');
         }
     }
 
@@ -92,12 +97,12 @@ $(document).ready(function(){
         addToStorage();
 
         if (items.length ==0) {
-            $('.js-items__clean').show();
+            listClean.show();
             localStorage.removeItem('comments');
         }
     }
 
-    $('.button').on('click', addTodo);
+    form.submit(addTodo);
 
     $('body').on('click', '.js-clear__btn', function(event){
         event.preventDefault();
@@ -107,8 +112,6 @@ $(document).ready(function(){
         addToStorage();
 
         deleteComment(item);
-
-        
     })
 
     function collapseComment(arrow) {
