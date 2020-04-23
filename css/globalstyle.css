@@ -11,19 +11,14 @@ html {
 body {
     min-width: 1000px; 
     margin: 0px; 
-    background: url("../img/met-pat-010.png"); 
-    font-family: "Comfortaa", italic, "Arial", sans-serif; 
+    background: #f5f5f5; 
+    font-family: "Arial", sans-serif; 
     font-size: 16px; 
     color: black; 
 }
 
 body.modal-active {
     overflow: hidden; 
-}
-
-h1,
-h2 {
-	margin: 0;
 }
 
 img {
@@ -34,20 +29,6 @@ a {
     text-decoration: none;  
     color: inherit; 
 }
-
-p {
-    margin: 0;
-    padding: 0;
-}
-
-ul {
-    margin: 0;
-}
-
-li {
-    list-style-type: none;
-}
-
 
 .visually-hidden { 
     position: absolute; 

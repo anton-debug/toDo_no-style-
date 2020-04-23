@@ -59,7 +59,7 @@ $(document).ready(function(){
             // `);
             listEl.append(`
                 <li class="left-block-list js-list_items">
-                    <article class="business-items js-article">
+                    <article class="general-items_style business-items js-article">
                         <header class="header__list">
                             <h2 class="left-section-text">
                                 ${name}
@@ -69,7 +69,7 @@ $(document).ready(function(){
                             <button class="arrow btn-clear js-arrow"></button>
                         </header>
                     </article>
-                    <p class="descr-item js-coments_list">
+                    <p class="general-items_style descr-item js-coments_list">
                         ${text}
                     </p>
                 </li>
