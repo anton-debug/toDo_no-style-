@@ -40,8 +40,8 @@ $(document).ready(function(){
             
             listEL.append(`
                 <li class="left-block-list js-list_items">
-                    <article class="general-items_style business-items js-article">
-                        <header class="header__list">
+                    <article class="js-article">
+                        <header class="header general-items_style">
                             <h2 class="left-section-text">
                                 ${name}
                             </h2>
@@ -49,10 +49,11 @@ $(document).ready(function(){
                             <button class="clear-btn btn-clear js-clear__btn"></button>
                             <button class="arrow btn-clear js-arrow"></button>
                         </header>
-                    </article>
-                    <p class="general-items_style descr-item js-coments_list">
+                        <p class="general-items_style descr-item js-coments_list">
                         ${text}
-                    </p>
+                        </p>
+                    </article>
+                    
                 </li>
             `);
 

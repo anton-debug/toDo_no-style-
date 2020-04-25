@@ -20,6 +20,7 @@ li {
 .left-section {
 	float: left;
 	width: 470px;
+	padding: 60px 0 0px;
 }
 
 .left-block-list {
@@ -57,8 +58,9 @@ li {
 	font-weight: 400;
 	color: #000;
 	background-color: transparent;
-	padding: 60px 0 30px;
+	/* padding: 60px 0 30px; */
 	/* text-align: center; */
+	margin-bottom: 30px;
 }
 
 .left-section-empty {
@@ -67,17 +69,21 @@ li {
 	text-align: center;
 }
 
+.header {
+	border-bottom: 1px solid #d3d3d3;
+}
+
 .general-items_style {
 	padding: 20px;
 	background-color: #fff;
 }
 
-.business-items {
-	/* padding: 20px; */
-	border-bottom: 1px solid #d3d3d3;
-	/* border-radius: 10px 10px 0px 0px; */
-	/* background-color: #fff; */
-}
+/* .business-items {
+	padding: 20px;
+	
+	border-radius: 10px 10px 0px 0px;
+	background-color: #fff;
+} */
 
 .descr-item {
 	/* padding: 20px; */
@@ -110,6 +116,7 @@ li {
 .right-section {
 	float: right;
 	width: 470px;
+	padding: 60px 0 0px;
 }
 
 .form {
@@ -163,14 +170,14 @@ li {
 
 .button {
 	display: block;
-	margin: 28px auto 0 0;  
-	border: none;
-	/* border-radius: 10px; */
-	cursor: pointer;
-	background-color: #2174fd;
-	min-width: 224px;
-	height: 55px;
-	color: #fff;
+    margin: 28px auto 0 0;
+    padding: 17px 0 17px 0;
+    border: none;
+    /* border-radius: 10px; */
+    cursor: pointer;
+    background-color: #2174fd;
+    min-width: 224px;
+    color: #fff;
 }
 
 .button:hover {
