@@ -1,42 +1,27 @@
 $(document).ready(function(){
-
-    let listEL = $('.js-list'); //Переменная на список
     
-    const LIST_CLEAN_EL = $('.js-items__clean'); //Константа на 'Список пуст...'
-          BTN_ADD_WORK = $('.js-btn'); // Кнопка Добавить дело
-
-          formWorkEL = $('.js-form__work'); //Поле ввода названия дела input
-          formDeskrEL = $('.js-form__descr'); // Поле ввода описания дела 'textarea'
-          formEL = $('.js-form'); // Форма "Добавить новое дело"
+    const formEL = $('.js-form'), //Константа для  form - формы в общем
+          btnAddWork = $('.js-btn'), //Константа для элемента формы
+          listEL = $('.js-list'),
+          listCleanEl = $('.js-items__clean'), // Переменная для "Список пуст..."
+          formWorkEl = $('.js-form__work'),
+          formDeskrEl = $('.js-form__descr');
+       
         
         
 
-    function initialState() {
-        if (localStorage.getItem('comments') == null) {
-            LIST_CLEAN_EL.show();
-        } else {
-            listEL.html(localStorage.getItem('comments'));
-            LIST_CLEAN_EL.hide();
-        }
-    }
+    
 
-    initialState();
+    function onBtnClickWork(event) {
+        event.preventDefault(); //отмена стандартного поведения для формы
+        
+        let name = formWorkEl.val(),//Забирает то что написали в input
+            text = formDeskrEl.val(); // Забирает то что написали в textarea
 
-    function addToStorage() {
-        let content = listEL.html();
-        console.log(content);
-        localStorage.setItem('comments', content);
-    }
-
-    function addTodo(event) {
-        event.preventDefault();
-        let name = formWorkEL.val(),//Забирает то что написали в input
-            text = formDeskrEL.val(); // Забирает то что написали в textarea
-
-        if (name && text) { //Проверяем написано ли что то в формах
-           
-            formWorkEL.removeClass('error');
-            formDeskrEL.removeClass('error');
+        // if (name && text) { //Проверяем написано ли что то в формах
+        
+            // formWorkEl.removeClass('error');
+            // formDeskrEl.removeClass('error');
             
             listEL.append(`
                 <li class="left-block-list js-list_items">
@@ -46,76 +31,33 @@ $(document).ready(function(){
                                 ${name}
                             </h2>
 
-                            <button class="clear-btn btn-clear js-clear__btn"></button>
-                            <button class="arrow btn-clear js-arrow"></button>
+                            <button class="clear-btn btn-clear js-clear__btn" type="button" name="clearBtnCard"></button>
+
+                            <button class="arrow btn-clear js-arrow" type="button" name="arrowBtnCard"></button>
                         </header>
+
                         <p class="general-items_style descr-item js-coments_list">
                         ${text}
                         </p>
                     </article>
-                    
                 </li>
             `);
 
             /* Обнуляем/очищаем формы после добавления дела
             добавляя пустую строку в val('') */
-            LIST_CLEAN_EL.hide();
+            listCleanEl.hide();
+            this.reset();
 
-            name = formWorkEL.val('');
-            text = formDeskrEL.val('');
+            // name = formWorkEl.val('');
+            // text = formDeskrEl.val('');
 
-            addToStorage();
 
-        } else { //Если в формах ничего нет и нажали кнопку добавить, то добавляется клас error
-            formWorkEL.addClass('error');
-            formDeskrEL.addClass('error');
-        }
+        // // } else { //Если в формах ничего нет и нажали кнопку добавить, то добавляется клас error
+        //     formWorkEl.addClass('error');
+        //     formDeskrEl.addClass('error');
+        // }
     }
 
-    function deleteComment(item) {
-        item.remove();
-
-        let items = $('.js-list_items');
-
-        addToStorage();
-
-        if (items.length ==0) {
-            LIST_CLEAN_EL.show();
-            localStorage.removeItem('comments');
-        }
-    }
-
-    
-    /* При заполнении формы добавление дела - при нажатии на Enter */
-    formEL.keypress(function(e) {
-        if(e.which == 13) {
-            $(this).blur();
-            BTN_ADD_WORK.focus().click();
-        }
-    });
-
-    formEL.on('submit', addTodo);
-
-    /* // При заполнении формы добавление дела - при нажатии на Enter */
-
-    $('body').on('click', '.js-clear__btn', function(event){
-        event.preventDefault();
-
-        let item = $(this).parents('.js-list_items');
-
-        addToStorage();
-
-        deleteComment(item);
-    })
-
-    function collapseComment(arrow) {
-        arrow.slideToggle();
-    }
-
-    $('body').on('click', '.js-arrow', function(){ 
-        let arrow = $(this).parents('.js-list_items').find('.js-coments_list');
-        // $('.left-block-list').addClass('zeroHeight');
-        collapseComment(arrow);
-    })
-
+    formEL.on('submit', onBtnClickWork);
 })
+

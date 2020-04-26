@@ -25,66 +25,24 @@
             <ul class="todo__list js-list">
 
             </ul>
-
-<!--             <ul class="left-block-list">
-                <li class="left-block-list">
-                    <article class="item_block">
-                        <header class="header__list">
-                            <h2 class="left-section-text">
-
-                            </h2>
-
-                            <button class="clear-btn btn-clear"></button>
-                            <button class="arrow btn-clear"></button>
-                        </header>
-                        <p class="descr-item">
-
-                        </p>
-                    </article>
-                </li>
-            </ul>
- -->                
-<!--             <div class="left-block-list">
-                <div class="business-items">
-                    <div class="left-section-items">
-                        <p class="left-section-text">
-                            Позвонить маме
-                        </p>
-    
-                        <button class="clear-btn btn-clear"></button>
-
-                        <button class="arrow btn-clear"></button>
-                    </div>
-                    
-                </div>
-    
-                <div class="descr-item">
-                    <p class="descr-item-coments">
-                        Дело 2
-                    </p>
-                </div>
-            </div>
- -->        </section>
+        </section>
 
         <section class="right-section clearfix">
-
             <h2 class="section-heading">
                 Добавить новое дело
             </h2>
-
             <!-- <button class="print" onclick="window.print()">&#128438;</button> -->
-
             <form class="form js-form">
                 <div class="right-input-text">
                     <label for="name-work" class="label-heding">
                         * Название
                     </label>
-                    <input id="name-work" class="general-form_style name-form-work js-form__work" type="text" autocomplete="off" name="name">
+                    <input id="name-work" class="general-form_style name-form-work js-form__work" type="text" autocomplete="off" name="name" required>
 
                     <label for="work-descr" class="label-heding">
                         * Описание
                     </label>
-                    <textarea id="work-descr" class="general-form_style form-descr js-form__descr" name="form-descr" maxlength="1000" cols="50" rows="9"
+                    <textarea id="work-descr" class="general-form_style form-descr js-form__descr" name="form-descr" required maxlength="1000" cols="50" rows="9"
                         wrap="hard"></textarea>
 
                     <input id="btn-addWorks" class="button js-btn" type="submit" value="Добавить дело">
@@ -95,8 +53,6 @@
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="./js/javascript.js"></script>
-
-    
 </body>
 
 </html>
