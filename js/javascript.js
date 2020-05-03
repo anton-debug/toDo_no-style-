@@ -6,24 +6,13 @@ $(document).ready(function(){
           listCleanEl = $('.js-items__clean'), // Переменная для "Список пуст..."
           formWorkEl = $('.js-form__work'),
           formDeskrEl = $('.js-form__descr');
-        //   itemsEL = $('.js-list_items');
-       
-        
-        
-
-    
-
+          
     function onAddBtnClickWork(event) {
         event.preventDefault(); //отмена стандартного поведения для формы
         
         const name = formWorkEl.val(),//Забирает то что написали в input
             text = formDeskrEl.val(); // Забирает то что написали в textarea
 
-        // if (name && text) { //Проверяем написано ли что то в формах
-        
-            // formWorkEl.removeClass('error');
-            // formDeskrEl.removeClass('error');
-            
             listEL.append(`
                 <li class="left-block-list js-list_items">
                     <article class="js-article">
@@ -48,15 +37,6 @@ $(document).ready(function(){
             добавляя пустую строку в val('') */
             listCleanEl.hide();
             this.reset();
-
-            // name = formWorkEl.val('');
-            // text = formDeskrEl.val('');
-
-
-        // // } else { //Если в формах ничего нет и нажали кнопку добавить, то добавляется клас error
-        //     formWorkEl.addClass('error');
-        //     formDeskrEl.addClass('error');
-        // }
     }
 
     function deleteComment(item) {
@@ -64,46 +44,32 @@ $(document).ready(function(){
 
         const items = $('.js-list_items');
 
-        // addToStorage();
-
         if (items.length ==0) {
             listCleanEl.show();
-            // localStorage.removeItem('comments');
         }
     }
 
-    
-    /* При заполнении формы добавление дела - при нажатии на Enter */
-    formEL.keypress(function(e) {
-        if(e.which == 13) {
-            $(this).blur();
-            btnAddWork.focus().click();
-        }
-    });
-    /* // При заполнении формы добавление дела - при нажатии на Enter */
-
     formEL.on('submit', onAddBtnClickWork);
-
 
       $('body').on('click', '.js-clear__btn', function(event){
         event.preventDefault();
 
         const item = $(this).parents('.js-list_items');
 
-        // addToStorage();
-
         deleteComment(item);
     })
 
     function collapseComment(arrow) {
-        arrow.slideToggle();
+        arrow.slideToggle(20);
+
+        const arrowDwn = $('.js-arrow');
+              arrowDwn.toggleClass('js-arrow-up');
     }
 
     $('body').on('click', '.js-arrow', function(){ 
         const arrow = $(this).parents('.js-list_items').find('.js-coments_list');
         collapseComment(arrow);
     })
-
 
 })
 
