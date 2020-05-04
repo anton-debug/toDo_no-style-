@@ -7,7 +7,7 @@ $(document).ready(function(){
           formWorkEl = $('.js-form__work'),
           formDeskrEl = $('.js-form__descr');
           
-    function onAddBtnClickWork(event) {
+    function onAddFormWork(event) {
         event.preventDefault(); //отмена стандартного поведения для формы
         
         const name = formWorkEl.val(),//Забирает то что написали в input
@@ -49,7 +49,7 @@ $(document).ready(function(){
         }
     }
 
-    formEL.on('submit', onAddBtnClickWork);
+    formEL.on('submit', onAddFormWork);
 
       $('body').on('click', '.js-clear__btn', function(event){
         event.preventDefault();
