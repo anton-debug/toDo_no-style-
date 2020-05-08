@@ -225,7 +225,7 @@ li {
 
 .js-arrow-up {
 	transform: rotate(180deg);
-    transition: transform 0.5s ease;
+    transition: 0.5s ease-in-out;
 }
 
 /* Ессли при нажатии "Добавить дело" поля формы пустые, 
