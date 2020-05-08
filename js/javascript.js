@@ -7,7 +7,7 @@ $(document).ready(function(){
           formWorkEl = $('.js-form__work'),
           formDeskrEl = $('.js-form__descr');
           
-    function onAddFormWork(event) {
+    function formSubmitHandler(event) {
         event.preventDefault(); //отмена стандартного поведения для формы
         
         const name = formWorkEl.val(),//Забирает то что написали в input
@@ -21,9 +21,9 @@ $(document).ready(function(){
                                 ${name}
                             </h2>
 
-                            <button class="clear-btn btn-clear js-clear__btn" type="button" name="clearBtnCard"></button>
+                            <button class="clear-btn btn-clear js-clear__btn" type="button" aria-label="Удалить" name="clearBtnCard"></button>
 
-                            <button class="arrow btn-clear js-arrow" type="button" name="arrowBtnCard"></button>
+                            <button class="arrow btn-clear js-arrow" type="button" aria-label="Свернуть" name="arrowBtnCard"></button>
                         </header>
 
                         <p class="general-items_style descr-item js-coments_list">
@@ -33,42 +33,56 @@ $(document).ready(function(){
                 </li>
             `);
 
-            /* Обнуляем/очищаем формы после добавления дела
-            добавляя пустую строку в val('') */
             listCleanEl.hide();
             this.reset();
     }
 
-    function deleteComment(item) {
-        item.remove();
+        // Функция удаления карточки дела
+    // function deleteComment(item) {
+    //     // item.remove();
 
-        const items = $('.js-list_items');
+    //     const items = $('.js-list_items');
 
-        if (items.length ==0) {
-            listCleanEl.show();
-        }
-    }
+    //     if (items.length ==0) {
+    //         listCleanEl.show();
+    //     } else {
+    //         listCleanEl.hide();
+    //     }
+    // }
 
-    formEL.on('submit', onAddFormWork);
+    formEL.on('submit', formSubmitHandler);
 
       $('body').on('click', '.js-clear__btn', function(event){
         event.preventDefault();
 
         const item = $(this).parents('.js-list_items');
 
-        deleteComment(item);
+        item.remove();
+        
+        const items = $('.js-list_items');
+
+        if (items.length ==0) {
+            listCleanEl.show();
+        } else {
+            // listCleanEl.hide();
+        }
+
+        // deleteComment(item);
     })
 
-    function collapseComment(arrow) {
-        arrow.slideToggle(20);
+    // function collapseComment(arrow) {
+        // arrow.slideToggle(300);
 
-        const arrowDwn = $('.js-arrow');
-              arrowDwn.toggleClass('js-arrow-up');
-    }
+    //     // const arrowDwn = $('.js-arrow');
+    //     //       arrowDwn.toggleClass('js-arrow-up');
+    // }
 
     $('body').on('click', '.js-arrow', function(){ 
-        const arrow = $(this).parents('.js-list_items').find('.js-coments_list');
-        collapseComment(arrow);
+        const arrow = $(this).parents('.js-article').children('.js-coments_list');
+
+        arrow.slideToggle(500);
+
+        $(this).toggleClass('js-arrow-up');
     })
 
 })
