@@ -224,8 +224,8 @@ li {
 }
 
 .js-arrow-up {
-	transform: scaleY(-1);
-	/* transform: 0.5s ease; */
+	transform: rotate(180deg);
+    transition: transform 0.5s ease;
 }
 
 /* Ессли при нажатии "Добавить дело" поля формы пустые, 
