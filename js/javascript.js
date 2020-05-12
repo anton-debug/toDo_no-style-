@@ -52,7 +52,7 @@ $(document).ready(function(){
 
     formEL.on('submit', formSubmitHandler);
 
-      $('body').on('click', '.js-clear__btn', function(event){
+      $(listEL).on('click', '.js-clear__btn', function(event){
         event.preventDefault();
 
         const item = $(this).parents('.js-list_items');
@@ -77,12 +77,14 @@ $(document).ready(function(){
     //     //       arrowDwn.toggleClass('js-arrow-up');
     // }
 
-    $('body').on('click', '.js-arrow', function(){ 
+    $(listEL).on('click', '.js-arrow', function(){ 
         const arrow = $(this).parents('.js-article').children('.js-coments_list');
+        // console.log(arrow);
 
-        arrow.slideToggle(500);
-
-        $(this).toggleClass('js-arrow-up');
+        if (arrow.length > 0) {
+            arrow.slideToggle(500);
+            $(this).toggleClass('js-arrow-up');
+          }
     })
 
 })
