@@ -23,7 +23,7 @@ $(document).ready(function(){
 
                             <button class="clear-btn btn-clear js-clear__btn" type="button" aria-label="Удалить" name="clearBtnCard"></button>
 
-                            <button class="arrow btn-clear js-arrow" type="button" aria-label="Свернуть" name="arrowBtnCard"></button>
+                            <button class="arrow btn-clear js-arrow" type="button" aria-label="Collapse comment" name="arrowBtnCard"></button>
                         </header>
 
                         <p class="general-items_style descr-item js-coments_list">
@@ -77,14 +77,38 @@ $(document).ready(function(){
     //     //       arrowDwn.toggleClass('js-arrow-up');
     // }
 
-    $(listEL).on('click', '.js-arrow', function(){ 
-        const arrow = $(this).parents('.js-article').children('.js-coments_list');
-        // console.log(arrow);
+    $(listEL).on('click', '.js-arrow', function(event){ 
+        event.preventDefault();
 
-        if (arrow.length > 0) {
-            arrow.slideToggle(500);
+        // Работа метода .find() схожа с .children(), который осуществляет поиск подходящих дочерних элементов. Отличие заключается в том, что .find() проводит поиск не только среди дочерних элементов, но и внутри них тоже (т.е. поиск проходит на всех вложенных уровнях иерархии DOM, в то время как .children() ищет только на одном уровне).
+
+        const collapseEl = $(this).parents('.js-article').find('.js-coments_list');
+            collapseEl.slideToggle(500);
             $(this).toggleClass('js-arrow-up');
-          }
+
+
+
+        let items = listEL.children();
+
+        console.log(items.length)
+    
+        if (items.length ==0) {
+            listCleanEl.show();
+        } else {
+            listCleanEl.hide();
+        }
+        
+        // Меняем значение атрибута aria-label
+        
+        if ($(this).attr('aria-label') == 'открыть меню') {
+
+            $(this).attr('aria-label', 'закрыть меню') 
+        } else {
+
+            $(this).attr('aria-label', 'открыть меню') 
+        }
+          
+          
     })
 
 })
