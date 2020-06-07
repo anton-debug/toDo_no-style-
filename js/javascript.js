@@ -1,7 +1,7 @@
 $(document).ready(function(){
     
     const formEL = $('.js-form'), //Константа для  form - формы в общем
-          btnAddWork = $('.js-btn'), //Константа для элемента формы
+          itemsList = $('.js-list_items'), //Константа для элемента формы
           listEL = $('.js-list'),
           listCleanEl = $('.js-items__clean'), // Переменная для "Список пуст..."
           formWorkEl = $('.js-form__work'),
@@ -37,19 +37,6 @@ $(document).ready(function(){
             this.reset();
     }
 
-        // Функция удаления карточки дела
-    // function deleteComment(item) {
-    //     // item.remove();
-
-    //     const items = $('.js-list_items');
-
-    //     if (items.length ==0) {
-    //         listCleanEl.show();
-    //     } else {
-    //         listCleanEl.hide();
-    //     }
-    // }
-
     formEL.on('submit', formSubmitHandler);
 
       $(listEL).on('click', '.js-clear__btn', function(event){
@@ -59,23 +46,16 @@ $(document).ready(function(){
 
         item.remove();
         
-        const items = $('.js-list_items');
+        let items = itemsList.children();
 
         if (items.length ==0) {
             listCleanEl.show();
         } else {
-            // listCleanEl.hide();
+            
         }
 
-        // deleteComment(item);
+        
     })
-
-    // function collapseComment(arrow) {
-        // arrow.slideToggle(300);
-
-    //     // const arrowDwn = $('.js-arrow');
-    //     //       arrowDwn.toggleClass('js-arrow-up');
-    // }
 
     $(listEL).on('click', '.js-arrow', function(event){ 
         event.preventDefault();
@@ -95,17 +75,16 @@ $(document).ready(function(){
         if (items.length ==0) {
             listCleanEl.show();
         } else {
-            listCleanEl.hide();
+
         }
         
-        // Меняем значение атрибута aria-label
         
-        if ($(this).attr('aria-label') == 'открыть меню') {
+        if ($(this).attr('aria-label') == 'открыть коментарий') {
 
-            $(this).attr('aria-label', 'закрыть меню') 
+            $(this).attr('aria-label', 'закрыть коментарий') 
         } else {
 
-            $(this).attr('aria-label', 'открыть меню') 
+            $(this).attr('aria-label', 'открыть коментарий') 
         }
           
           
